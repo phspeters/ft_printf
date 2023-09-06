@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pehenri2 <pehenri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/04 15:24:49 by pehenri2          #+#    #+#             */
-/*   Updated: 2023/09/06 17:15:50 by pehenri2         ###   ########.fr       */
+/*   Created: 2023/07/17 17:34:22 by pehenri2          #+#    #+#             */
+/*   Updated: 2023/09/06 16:19:18 by pehenri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "ft_printf.h"
-#include <limits.h>
 
-int	main(void)
+size_t	ft_strlen(const char *str)
 {
-	int	counter;
+	int	len;
 
-	counter = 0;
-	counter = ft_printf("ft_: %p\n", (void *)0);
-	ft_printf("ft_: %d\n", counter);
-	counter = printf("ft_: %p\n", (void *)0);
-	printf("std: %d\n", counter);
+	len = 0;
+	while (str[len])
+		len++;
+	return (len);
 }
