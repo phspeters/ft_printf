@@ -6,7 +6,7 @@
 /*   By: pehenri2 <pehenri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 16:51:48 by pehenri2          #+#    #+#             */
-/*   Updated: 2023/09/11 18:41:41 by pehenri2         ###   ########.fr       */
+/*   Updated: 2023/09/11 19:06:57 by pehenri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	ft_puthexlow_bonus(unsigned int nbr, char flag)
 	int	counter;
 
 	counter = 0;
-	if (flag == '#')
+	if (flag == '#' && nbr != 0)
 		counter += write(1, "0x", 2);
 	counter += print_hexlow_bonus(nbr);
 	return (counter);

@@ -6,7 +6,7 @@
 /*   By: pehenri2 <pehenri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 17:35:11 by pehenri2          #+#    #+#             */
-/*   Updated: 2023/09/11 18:40:04 by pehenri2         ###   ########.fr       */
+/*   Updated: 2023/09/11 19:12:31 by pehenri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ft_putnbr_bonus(int n, char flag)
 	counter = 0;
 	if ((n >= 0) && (flag == '+'))
 		counter += ft_putchar('+');
-	if (flag == ' ')
+	if ((n >= 0) && (flag == ' '))
 		counter += ft_putchar(' ');
 	counter += print_nbr_bonus(n);
 	return (counter);
