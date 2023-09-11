@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pehenri2 <pehenri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 11:48:12 by pehenri2          #+#    #+#             */
-/*   Updated: 2023/09/11 18:38:07 by pehenri2         ###   ########.fr       */
+/*   Updated: 2023/09/11 18:51:33 by pehenri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
-int	print_format(const char specifier, va_list args)
+int	print_format(const char specifier, va_list args, const char flag)
 {
 	if (specifier == 'c')
 		return (ft_putchar(va_arg(args, int)));
 	else if (specifier == 's')
 		return (ft_putstr(va_arg(args, char *)));
 	else if (specifier == 'd' || specifier == 'i')
-		return (ft_putnbr(va_arg(args, int)));
+		return (ft_putnbr_bonus(va_arg(args, int), flag));
 	else if (specifier == '%')
 		return (ft_putchar('%'));
 	else if (specifier == 'p')
@@ -27,9 +27,9 @@ int	print_format(const char specifier, va_list args)
 	else if (specifier == 'u')
 		return (ft_putunbr((va_arg(args, int))));
 	else if (specifier == 'x')
-		return (ft_puthexlow(va_arg(args, int)));
+		return (ft_puthexlow_bonus(va_arg(args, int), flag));
 	else if (specifier == 'X')
-		return (ft_puthex(va_arg(args, int)));
+		return (ft_puthex_bonus(va_arg(args, int), flag));
 	else
 		return (0);
 }
@@ -37,19 +37,26 @@ int	print_format(const char specifier, va_list args)
 int	ft_printf(const char *str, ...)
 {
 	va_list	args;
-	int		counter;
+	size_t	counter;
+	size_t	i;
 
 	if (str == NULL)
 		return (-1);
 	va_start(args, str);
+	i = 0;
 	counter = 0;
-	while (*str)
+	while (str[i])
 	{
-		if (*str == '%')
-			counter += print_format(*(++str), args);
+		if (str[i] == '%')
+		{
+			i++;
+			while (str[i] == ' ' || str[i] == '#' || str[i] == '+')
+				i++;
+			counter += print_format(str[i], args, str[i - 1]);
+		}
 		else
-			counter += ft_putchar(*str);
-		str++;
+			counter += ft_putchar(str[i]);
+		i++;
 	}
 	va_end(args);
 	return (counter);

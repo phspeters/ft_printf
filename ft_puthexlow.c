@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthexl.c                                       :+:      :+:    :+:   */
+/*   ft_puthexlow.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pehenri2 <pehenri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 16:51:48 by pehenri2          #+#    #+#             */
-/*   Updated: 2023/09/06 17:31:51 by pehenri2         ###   ########.fr       */
+/*   Updated: 2023/09/11 18:38:14 by pehenri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_puthexl(unsigned int nbr)
+int	ft_puthexlow(unsigned int nbr)
 {
 	unsigned long	nb;
 	int				counter;
@@ -23,7 +23,7 @@ int	ft_puthexl(unsigned int nbr)
 	counter = 0;
 	if (nb >= 16)
 	{
-		counter += ft_puthexl(nb / 16);
+		counter += ft_puthexlow(nb / 16);
 		counter += ft_putchar(base[nb % 16]);
 	}
 	else

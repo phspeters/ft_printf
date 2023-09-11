@@ -1,47 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putptr.c                                        :+:      :+:    :+:   */
+/*   ft_puthex_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pehenri2 <pehenri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/06 16:51:46 by pehenri2          #+#    #+#             */
-/*   Updated: 2023/09/11 18:27:22 by pehenri2         ###   ########.fr       */
+/*   Created: 2023/09/06 16:51:50 by pehenri2          #+#    #+#             */
+/*   Updated: 2023/09/11 18:41:32 by pehenri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
-static int	print_address(unsigned long long nbr)
+static int	print_hex_bonus(unsigned int nbr)
 {
-	int		counter;
-	char	*base;
+	unsigned long	nb;
+	int				counter;
+	char			*base;
 
+	base = "0123456789ABCDEF";
+	nb = nbr;
 	counter = 0;
-	base = "0123456789abcdef";
-	if (nbr >= 16)
+	if (nb >= 16)
 	{
-		counter += print_address(nbr / 16);
-		counter += ft_putchar(base[nbr % 16]);
+		counter += print_hex_bonus(nb / 16);
+		counter += ft_putchar(base[nb % 16]);
 	}
 	else
 	{
-		counter += ft_putchar(base[nbr % 16]);
+		counter += ft_putchar(base[nb % 16]);
 	}
 	return (counter);
 }
 
-int	ft_putptr(unsigned long long nbr)
+int	ft_puthex_bonus(unsigned int nbr, char flag)
 {
 	int	counter;
 
 	counter = 0;
-	if (nbr == 0)
-		counter += write(1, "(nil)", 5);
-	else
-	{
-		counter += write(1, "0x", 2);
-		counter += print_address(nbr);
-	}
+	if (flag == '#')
+		counter += write(1, "0X", 2);
+	counter += print_hex_bonus(nbr);
 	return (counter);
 }
