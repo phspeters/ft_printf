@@ -6,13 +6,13 @@
 /*   By: pehenri2 <pehenri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 16:51:46 by pehenri2          #+#    #+#             */
-/*   Updated: 2023/09/11 18:27:22 by pehenri2         ###   ########.fr       */
+/*   Updated: 2023/09/12 13:40:15 by pehenri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	print_address(unsigned long long nbr)
+static int	print_address(unsigned long nbr)
 {
 	int		counter;
 	char	*base;
@@ -31,7 +31,7 @@ static int	print_address(unsigned long long nbr)
 	return (counter);
 }
 
-int	ft_putptr(unsigned long long nbr)
+int	ft_putptr(unsigned long nbr)
 {
 	int	counter;
 

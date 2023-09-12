@@ -1,45 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthex_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_putunbr_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pehenri2 <pehenri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/06 16:51:50 by pehenri2          #+#    #+#             */
-/*   Updated: 2023/09/12 13:57:22 by pehenri2         ###   ########.fr       */
+/*   Created: 2023/08/02 17:35:11 by pehenri2          #+#    #+#             */
+/*   Updated: 2023/09/12 13:58:40 by pehenri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_bonus.h"
 
-static int	print_hex_bonus(unsigned int nbr)
+int	ft_putunbr_bonus(unsigned int n)
 {
-	unsigned long	nb;
+	unsigned long	nbr;
 	int				counter;
-	char			*base;
-
-	base = "0123456789ABCDEF";
-	nb = nbr;
-	counter = 0;
-	if (nb >= 16)
-	{
-		counter += print_hex_bonus(nb / 16);
-		counter += ft_putchar_bonus(base[nb % 16]);
-	}
-	else
-	{
-		counter += ft_putchar_bonus(base[nb % 16]);
-	}
-	return (counter);
-}
-
-int	ft_puthex_bonus(unsigned int nbr, char flag)
-{
-	int	counter;
 
 	counter = 0;
-	if (flag == '#' && nbr != 0)
-		counter += write(1, "0X", 2);
-	counter += print_hex_bonus(nbr);
+	nbr = n;
+	if (nbr > 9)
+		counter += ft_putunbr_bonus(nbr / 10);
+	counter += ft_putchar_bonus(nbr % 10 + '0');
 	return (counter);
 }

@@ -6,11 +6,13 @@
 /*   By: pehenri2 <pehenri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 11:48:12 by pehenri2          #+#    #+#             */
-/*   Updated: 2023/09/12 10:10:56 by pehenri2         ###   ########.fr       */
+/*   Updated: 2023/09/12 13:36:34 by pehenri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+// Self made test on https://github.com/phspeters/ft_printf/
 
 static int	print_format(const char specifier, va_list args)
 {

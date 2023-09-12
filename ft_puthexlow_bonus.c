@@ -6,7 +6,7 @@
 /*   By: pehenri2 <pehenri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 16:51:48 by pehenri2          #+#    #+#             */
-/*   Updated: 2023/09/11 19:06:57 by pehenri2         ###   ########.fr       */
+/*   Updated: 2023/09/12 13:57:55 by pehenri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ static int	print_hexlow_bonus(unsigned int nbr)
 	if (nb >= 16)
 	{
 		counter += print_hexlow_bonus(nb / 16);
-		counter += ft_putchar(base[nb % 16]);
+		counter += ft_putchar_bonus(base[nb % 16]);
 	}
 	else
 	{
-		counter += ft_putchar(base[nb % 16]);
+		counter += ft_putchar_bonus(base[nb % 16]);
 	}
 	return (counter);
 }

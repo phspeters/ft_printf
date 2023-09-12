@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pehenri2 <pehenri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/17 17:34:22 by pehenri2          #+#    #+#             */
-/*   Updated: 2023/09/12 13:40:47 by pehenri2         ###   ########.fr       */
+/*   Created: 2023/09/04 15:39:26 by pehenri2          #+#    #+#             */
+/*   Updated: 2023/09/12 13:50:46 by pehenri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
-size_t	ft_strlen(const char *str)
+int	ft_putchar_bonus(char c)
 {
-	int	len;
-
-	len = 0;
-	while (str[len])
-		len++;
-	return (len);
+	return (write(1, &c, 1));
 }
