@@ -6,7 +6,7 @@
 #    By: pehenri2 <pehenri2@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/06 16:05:23 by pehenri2          #+#    #+#              #
-#    Updated: 2023/09/12 11:21:28 by pehenri2         ###   ########.fr        #
+#    Updated: 2023/09/12 11:19:34 by pehenri2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,18 @@ bonus: $(OBJ_BONUS)
 %.o: %.c
 	$(CC) $(FLAGS) -c $< -o $@
 	ar rcs $(NAME) $@
+
+eval: eval.o $(NAME)
+	$(CC) $(FLAGS) eval.o libftprintf.a -o eval && ./eval
+	
+eval.o: eval.c
+	$(CC) $(FLAGS) -c $< -o $@
+
+eval_b: eval_b.o bonus
+	$(CC) $(FLAGS) eval_b.o libftprintf.a -o eval && ./eval
+	
+eval_b.o: eval_b.c
+	$(CC) $(FLAGS) -c $< -o $@
 
 norm:
 	norminette -R CheckForbiddenSourceHeader $(FILES) $(FILES_BONUS) ft_printf.h

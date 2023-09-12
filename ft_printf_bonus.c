@@ -6,13 +6,13 @@
 /*   By: pehenri2 <pehenri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 11:48:12 by pehenri2          #+#    #+#             */
-/*   Updated: 2023/09/11 18:51:33 by pehenri2         ###   ########.fr       */
+/*   Updated: 2023/09/12 10:24:01 by pehenri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_bonus.h"
 
-int	print_format(const char specifier, va_list args, const char flag)
+static int	print_format(const char specifier, va_list args, const char flag)
 {
 	if (specifier == 'c')
 		return (ft_putchar(va_arg(args, int)));
